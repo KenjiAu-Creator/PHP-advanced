@@ -16,11 +16,12 @@ include './templates/header.php';
     PHP Homepage!
   </p>
 
+<h2>Calculator History from Session</h2>
 <?php if (isset( $_SESSION['calcHistory'] ) ) : 
   // Check if there IS a calc history 
   ?>
   <ul>
-    <?php foreach( $SESSION['calcHistory'] as $calculation) : ?>
+    <?php foreach( $_SESSION['calcHistory'] as $calculation) : ?>
       <li>
         <?php echo $calculation; // Output the value from our calcHistory array! ?>
       </li>

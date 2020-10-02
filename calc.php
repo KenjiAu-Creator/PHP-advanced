@@ -30,38 +30,38 @@
   echo '</pre>';
 
   $result = FALSE;
-  if ( !empty( $_GET ) )
+  if ( !empty( $_POST ) )
   {
-    switch( $_GET["op"])
+    switch( $_POST["op"])
     {
       case "addition": 
         {
           $opSymbol = '+';
-          $result = $_GET['value1'] + $_GET['value2'];
+          $result = $_POST['value1'] + $_POST['value2'];
         break;
         }
       case "subtraction":
         {
           $opSymbol = '-';
-          $result = $_GET['value1'] - $_GET['value2'];
+          $result = $_POST['value1'] - $_POST['value2'];
           break;
         }
       case "multiplication":
         {
           $opSymbol = '&times;';
-          $result = $_GET['value1'] * $_GET['value2'];
+          $result = $_POST['value1'] * $_POST['value2'];
           break;
         }
       case "division":
         {
           $opSymbol = '&divide;';
-          $result = $_GET['value1'] / $_GET['value2'];
+          $result = $_POST['value1'] / $_POST['value2'];
           break;
         }
     }
     // Add this result to the calculator history array
     array_push( $_SESSION['calcHistory'],
-    "{$_GET['value1']} {$opSymbol} {$_GET['value2']} = {$result}"
+    "{$_POST['value1']} {$opSymbol} {$_POST['value2']} = {$result}"
     );
   }
   echo '<pre>';
@@ -74,7 +74,7 @@
     Welcome to our Calculator page!
   </p>
 
-  <form method="GET" action="calc.php">
+  <form method="POST" action="calc.php">
     <label for="num1">
       Enter first operand:
       <input 
