@@ -14,6 +14,7 @@
   $snack = [];
 
   // Let's retrieve out list of snakcs from the JSON.
+  // Also look into... fopen() fread() fwrite().
   $snacksFileString = file_get_contents( './data/snacks.json' );  // Retrieves
   // the contents of the file as a STRING.
 
