@@ -1,4 +1,7 @@
 <?php 
+  session_start();
+
+
 // GLOBAL variables are stored in PHP's
 // $_GLOBALS array.
 $GLOBALS['pageTitle'] = 'Home';
@@ -12,6 +15,18 @@ include './templates/header.php';
     <?php echo $GLOBALS['pageTitle'] ?>
     PHP Homepage!
   </p>
+
+<?php if (isset( $_SESSION['calcHistory'] ) ) : 
+  // Check if there IS a calc history 
+  ?>
+  <ul>
+    <?php foreach( $SESSION['calcHistory'] as $calculation) : ?>
+      <li>
+        <?php echo $calculation; // Output the value from our calcHistory array! ?>
+      </li>
+    <?php endforeach; ?>
+  </ul>
+<?php endif; ?>
 
 <?php
 // Show our footer.
