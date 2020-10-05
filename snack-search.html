@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav>
+      <h2>Snack Search</h2>
+      <ul>
+        <li>
+          <a href="index.php"> Home </a>
+        </li>
+        <li>
+          <a href="calc.php"> Calculator </a>
+        </li>
+        <li>
+          <a href="snacks.php"> Snacks! (OOP) </a>
+        </li>
+        <li>
+          <a href="cat-facts-api.php"> Cat Facts (External API) </a>
+        </li>
+        <li>
+          <a href="snack-search.html"> Snack Search ( AJAX + API ) </a>
+        </li>
+      </ul>
+    </nav>
+
+    <h2>Snacks Search Form</h2>
+    <form id="search-form">
+      <label for="search-input">
+        Name of Snack:
+        <input type="search" name="search" id="search-input" >
+      </label>
+      <input type="submit" value="Search Snacks">
+    </form>
+
+    <h3>Snack Search Results</h3>
+    <ul id="search-results">
+
+    </ul>
+    
+    <footer>
+      <h2>Footer Details</h2>
+      <p>
+        &copy;
+        <?php echo date('Y') // Output the year
+      // (Based on the server computer time ?>
+        TECHCareers
+      </p>
+    </footer>
+  </body>
+</html>
