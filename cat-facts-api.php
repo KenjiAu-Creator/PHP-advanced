@@ -42,9 +42,10 @@ if ($dailyCatFactResponse) { //Convert JSON string into a JSON object.
 </form>
 <?php
 // Let's modify our request to include a QUERY PARAMETER STRING.
-$dailyDogFactResponse = file_get_contents(
-  'https://cat-fact.herokuapp.com/facts/random?amount=010&animal_type=dog'
+$factListResponse = file_get_contents(
+  "https://cat-fact.herokuapp.com/facts/random?amount={$_POST['amount']}&animal_type={$_POST['type']}"
 );  // Test the response via var_dump()
-// var_dump($dailyDogFactResponse);
+var_dump($factListResponse);
+
 
 include './templates/footer.php' ?>
