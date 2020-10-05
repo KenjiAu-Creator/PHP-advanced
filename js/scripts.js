@@ -39,6 +39,7 @@ snackSearchForm.addEventListener("submit", (event) => {
         // Append the elements to the list in our webpage.
         snackResults.append(snackLI);
       };
-      // Append the elements to the list in our webpage.
+      // Empty the search field.
+      snackSearchInput.value = '';
     });
 });
