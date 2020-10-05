@@ -61,13 +61,19 @@ if (isset($_POST['amount']) && isset($_POST['type'])) {
       <?php echo ucfirst($_POST['type']); ?>
       Facts
     </h2>
-    <ol>
-      <?php foreach ($factsList as $fact) : ?>
-        <li>
-          <?php echo $fact->text ?>
-        </li>
-      <?php endforeach ?>
-    </ol>
+    <?php if ( is_object( $factsList ) ) : ?>
+      <p><?php echo $factsList->text; ?></p>
+    <?php elseif ( !empty( $factsList ) ) : ?>
+      <ol>
+        <?php foreach ($factsList as $fact) : ?>
+          <li>
+            <?php echo $fact->text; ?>
+          </li>
+        <?php endforeach; ?>
+      </ol>
+    <?php else : ?>
+      <p>No facts found.</p>
+    <?php endif; ?>
 <?php
   }
 }
