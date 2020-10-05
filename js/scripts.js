@@ -13,6 +13,8 @@ snackSearchForm.addEventListener("submit", (event) => {
   // Stop the form from submitting the traditional way.
   event.preventDefault();
   const results = false;
+  // Empty the snack search result list.
+  snackResults.innerHTML = '';
   // Attempt a fetch for results.
   fetch(`http://localhost:3000/api/snacks.php?search=${snackSearchInput.value}`)
     .then((response) => response.json())
