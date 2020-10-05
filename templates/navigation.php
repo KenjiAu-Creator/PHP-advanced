@@ -12,8 +12,13 @@
       </a>
     </li>
     <li>
-    <a href="snacks.php">
+      <a href="snacks.php">
         Snacks! (OOP)
+      </a>
+    </li>
+    <li>
+      <a href="cat-facts-api.php">
+        Cat Facts (External API)
       </a>
     </li>
   </ul>
