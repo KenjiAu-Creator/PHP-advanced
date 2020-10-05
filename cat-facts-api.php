@@ -30,22 +30,46 @@ if ($dailyCatFactResponse) { //Convert JSON string into a JSON object.
 ?>
 <h2>Request Animal Facts</h2>
 <form action="#" method="POST">
-  <label for-"amount">Enter the Amount of Facts:
-    <input type="number" id="amount" />
+  <label for="amount">Enter the Amount of Facts:
+    <input type="number" id="amount" name="amount" />
   </label>
   <label for="animal-type">Enter the Type of Animal:
-    <input type="text" id="animal-type" name="type"/>
+    <select id="animal-type" name="type">
+      <option value="cat">Cat</option>
+      <option value="dog">Dog</option>
+      <option value="horse">Horse</option>
+      <option value="snail">Snail</option>
+    </select>
   </label>
   <input type="submit" value="Get Animal Facts!">
 </form>
 
 </form>
 <?php
-// Let's modify our request to include a QUERY PARAMETER STRING.
-$factListResponse = file_get_contents(
-  "https://cat-fact.herokuapp.com/facts/random?amount={$_POST['amount']}&animal_type={$_POST['type']}"
-);  // Test the response via var_dump()
-var_dump($factListResponse);
+if (isset($_POST['amount']) && isset($_POST['type'])) {
+  // Let's modify our request to include a QUERY PARAMETER STRING.
+  $factListResponse = file_get_contents(
+    "https://cat-fact.herokuapp.com/facts/random?amount={$_POST['amount']}&animal_type={$_POST['type']}"
+  );  // Test the response via var_dump()
+  //var_dump($factListResponse);
 
+  // Check if there was a response
+  if ($factListResponse) { // Convert to JSON.
+    $factsList = json_decode($factListResponse);
+?>
+    <h2>List of
+      <?php echo ucfirst($_POST['type']); ?>
+      Facts
+    </h2>
+    <ol>
+      <?php foreach ($factsList as $fact) : ?>
+        <li>
+          <?php echo $fact->text ?>
+        </li>
+      <?php endforeach ?>
+    </ol>
+<?php
+  }
+}
 
 include './templates/footer.php' ?>
